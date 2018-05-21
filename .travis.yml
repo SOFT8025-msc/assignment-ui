@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "8.9"
+before_script:
+  - npm install -g @angular/cli
+script:
+  - ng build --prod
+deploy:
+  provider: heroku
+  api_key: $DEPLOY_KEY
+  app: assignment-ui
+  on:
+    repo: SOFT8025-msc/assignment-ui

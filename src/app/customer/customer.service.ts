@@ -17,4 +17,8 @@ export class CustomerService {
   deleteCustomer(customer: Customer) {
     return this.http.delete(`https://customer-ms-java.herokuapp.com/customers/delete/${customer.id}`);
   }
+
+  updateCustomer(customer: Customer) {
+    return this.http.post(`https://customer-ms-java.herokuapp.com/customers/update/${customer.id}`, customer);
+  }
 }
