@@ -1,0 +1,5 @@
+name: assignment-ui
+instances: 1
+memory: 64M
+buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+path: ./dist
