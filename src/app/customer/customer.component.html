@@ -14,10 +14,12 @@
     <td>{{customer.title}}</td>
     <td>
       <div *ngFor="let address of customer.shippingAddresses">
-        {{address?.postalCode}} {{address?.line1}}
-        {{address?.line1}}
-        {{address?.city}} {{address?.county}}
-        {{address?.country}}
+        <div>Postal Code: {{address?.postalCode}}</div>
+        <div>Line 1: {{address?.line1}}</div>
+        <div>Line 2: {{address?.line2}}</div>
+        <div>City: {{address?.city}}</div>
+        <div>County: {{address?.county}}</div>
+        <div>Country: {{address?.country}}</div>
       </div>
     </td>
     <td>
