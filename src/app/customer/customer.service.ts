@@ -11,14 +11,14 @@ export class CustomerService {
   }
 
   getCustomers() {
-    return this.http.get<Customer[]>('https://customer-ms-java.herokuapp.com/customers/list');
+    return this.http.get<Customer[]>('/customers/list');
   }
 
   deleteCustomer(customer: Customer) {
-    return this.http.delete(`https://customer-ms-java.herokuapp.com/customers/delete/${customer.id}`);
+    return this.http.delete(`/customers/delete/${customer.id}`);
   }
 
   updateCustomer(customer: Customer) {
-    return this.http.post(`https://customer-ms-java.herokuapp.com/customers/update/${customer.id}`, customer);
+    return this.http.post(`customers/update/${customer.id}`, customer);
   }
 }
