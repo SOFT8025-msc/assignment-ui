@@ -4,6 +4,7 @@
   <th>First Name</th>
   <th>Last Name</th>
   <th>Title</th>
+  <th>Shipping Address</th>
   <th>Options</th>
   </thead>
   <tbody>
@@ -12,7 +13,12 @@
     <td>{{customer.lastName}}</td>
     <td>{{customer.title}}</td>
     <td>
-      <app-customer-options (onDelete)="getCustomers()" (onUpdate)="getCustomers()" [customer]="customer"></app-customer-options>
+      {{customer?.shippingAddress?.postalCode + customer?.shippingAddress?.line1 + customer?.shippingAddress?.line1 +
+      customer?.shippingAddress?.city + customer?.shippingAddress?.county + customer?.shippingAddress?.country}}
+    </td>
+    <td>
+      <app-customer-options (onDelete)="getCustomers()" (onUpdate)="getCustomers()"
+                            [customer]="customer"></app-customer-options>
       <!--<app-customer-options (onUpdate)="getCustomers()" [customer]="customer"></app-customer-options>-->
     </td>
   </tr>
