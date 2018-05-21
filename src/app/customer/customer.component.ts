@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {CustomerService} from './customer.service';
+import {Customer} from './customer.model';
 
 @Component({
   selector: 'app-customer',
@@ -7,23 +8,17 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  private apiUrl = 'https://customer-ms-java.herokuapp.com/customers/list';
-  data: any = [];
+  customers: Customer[] = [];
 
-  constructor(private http: HttpClient) {
-    console.log('I hope this call works');
-    this.getData();
-    console.log(this.data);
-  }
-
-  getData() {
-    return this.http.get(this.apiUrl).subscribe((res) => {
-      this.data = res;
-    });
+  constructor(private service: CustomerService) {
   }
 
   ngOnInit() {
+    this.getCustomers();
+  }
 
+  getCustomers() {
+    this.service.getCustomers().subscribe((customers) => this.customers = customers);
   }
 
 }
