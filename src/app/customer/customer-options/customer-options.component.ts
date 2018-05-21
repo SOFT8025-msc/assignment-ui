@@ -11,12 +11,17 @@ export class CustomerOptionsComponent {
 
   @Input() customer: Customer;
   @Output() onDelete = new EventEmitter();
+  @Output() onUpdate = new EventEmitter();
 
   constructor(private service: CustomerService) {
   }
 
   deleteCustomer() {
     this.service.deleteCustomer(this.customer).subscribe(() => this.onDelete.emit());
+  }
+
+  updateCustomer() {
+    this.service.updateCustomer(this.customer).subscribe(() => this.onUpdate.emit());
   }
 
 }
